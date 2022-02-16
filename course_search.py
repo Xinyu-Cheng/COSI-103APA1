@@ -21,6 +21,7 @@ title  (filter by phrase in title)
 description (filter by phrase in description)
 timeofday (filter by day and time, e.g. meets at 11 on Wed)
 limit (filter by upper limit, e.g. 50)
+starttime(filter by start time, based on a 24-hour clock)
 '''
 
 terms = {c['term'] for c in schedule.courses}
@@ -59,6 +60,17 @@ def topmenu():
         elif command in ['d','description']:
             phrase = input("enter a phrase:")
             schedule = schedule.description(phrase)
+        #7.b --weidong 
+        elif command in ['title']:
+            phrase = input("enter a phrase:")
+            schedule = schedule.title(phrase)
+        #7.e --weidong 
+        elif command in ['starttime']:
+            time = int(input("enter a start time:"))
+            schedule = schedule.starttime(time)
+        elif command in ['day']:
+            time = input("enter a day(m,tu,w,th,f):")
+            schedule = schedule.day(time)
         else:
             print('command',command,'is not supported')
             continue

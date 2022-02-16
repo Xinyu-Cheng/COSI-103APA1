@@ -60,5 +60,16 @@ class Schedule():
     
     #6.c, return courses with a limit less than or equal to the input limit. --Jingqian
     def limit(self, limit):
-        return Schedule([course for course in self.courses if course['limit'] in limit])             
- 
+        return Schedule([course for course in self.courses if course['limit'] in limit]) 
+    #6.a --Weidong          
+    def title(self,phrase):
+        ''' subject filters the courses by subject '''
+        return Schedule([course for course in self.courses if phrase in course['name']])
+    #6.e --Weidong
+    def starttime(self,time):
+        ''' subject filters the courses by subject '''
+        return Schedule([course for course in self.courses if len(course['times']) != 0 and course['times'][0]['start'] == time])
+    
+    def day(self,day):
+        ''' subject filters the courses by subject '''
+        return Schedule([course for course in self.courses if len(course['times']) != 0 and day in course['times'][0]['days']])

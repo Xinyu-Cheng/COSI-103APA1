@@ -22,6 +22,7 @@ description (filter by phrase in description)
 timeofday (filter by day and time, e.g. meets at 11 on Wed)
 limit (filter by upper limit, e.g. 50)
 starttime(filter by start time, based on a 24-hour clock)
+day(filter by day, e.g. m,tu,w,th,)
 '''
 
 terms = {c['term'] for c in schedule.courses}

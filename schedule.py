@@ -68,7 +68,7 @@ class Schedule():
     #6.e --Weidong
     def starttime(self,time):
         ''' subject filters the courses by subject '''
-        return Schedule([course for course in self.courses if len(course['times']) != 0 and course['times'][0]['start'] == time])
+        return Schedule([course for course in self.courses if len(course['times']) != 0 and course['times'][0]['start'] == time*60])
     
     def day(self,day):
         ''' subject filters the courses by subject '''

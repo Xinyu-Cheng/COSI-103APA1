@@ -20,6 +20,7 @@ subject (filter by subject, e.g. COSI, or LALS)
 title  (filter by phrase in title)
 description (filter by phrase in description)
 timeofday (filter by day and time, e.g. meets at 11 on Wed)
+limit (filter by upper limit, e.g. 50)
 '''
 
 terms = {c['term'] for c in schedule.courses}
@@ -47,10 +48,21 @@ def topmenu():
         elif command in ['s','subject']:
             subject = input("enter a subject:")
             schedule = schedule.subject([subject])
+        #7.a --Jingqian
+        elif command in ['c','course']:
+            coursenum = input("enter a coursenum:")
+            schedule = schedule.coursenum(coursenum)
+        #7.e --Jingqian
+        elif command in ['l','limit']:
+            limit = int(input("enter a limit:"))
+            schedule = schedule.limit(range(0, limit))
+        elif command in ['d','description']:
+            phrase = input("enter a phrase:")
+            schedule = schedule.description(phrase)
         else:
             print('command',command,'is not supported')
             continue
-
+            
         print("courses has",len(schedule.courses),'elements',end="\n\n")
         print('here are the first 10')
         for course in schedule.courses[:10]:

@@ -49,4 +49,16 @@ class Schedule():
         else:
             print("can't sort by "+str(field)+" yet")
             return self
+      
+    #6.b --Jingqian
+    def description(self,phrase):
+        return Schedule([course for course in self.courses if phrase in course['description']])
+          
+    #6.c, return courses containing the input num. -- Jingqian
+    def coursenum(self,num):
+        return Schedule([course for course in self.courses if num in course['coursenum']])
+    
+    #6.c, return courses with a limit less than or equal to the input limit. --Jingqian
+    def limit(self, limit):
+        return Schedule([course for course in self.courses if course['limit'] in limit])             
  

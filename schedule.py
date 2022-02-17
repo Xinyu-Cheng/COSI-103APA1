@@ -49,22 +49,24 @@ class Schedule():
         else:
             print("can't sort by "+str(field)+" yet")
             return self
-      
+ 
     #6.b --Jingqian
     def description(self,phrase):
         return Schedule([course for course in self.courses if phrase in course['description']])
-          
+
     #6.c, return courses containing the input num. -- Jingqian
     def coursenum(self,num):
         return Schedule([course for course in self.courses if num in course['coursenum']])
-    
+
     #6.c, return courses with a limit less than or equal to the input limit. --Jingqian
     def limit(self, limit):
-        return Schedule([course for course in self.courses if course['limit'] in limit]) 
-    #6.a --Weidong          
+        return Schedule([course for course in self.courses if course['limit'] in limit])
+
+    #6.a --Weidong      
     def title(self,phrase):
         ''' subject filters the courses by subject '''
         return Schedule([course for course in self.courses if phrase in course['name']])
+
     #6.e --Weidong
     def starttime(self,time):
         ''' subject filters the courses by subject '''
@@ -73,3 +75,7 @@ class Schedule():
     def day(self,day):
         ''' subject filters the courses by subject '''
         return Schedule([course for course in self.courses if len(course['times']) != 0 and day in course['times'][0]['days']])
+
+    #6.e --Katherine Cheng
+    def status(self,subject):
+        return Schedule([course for course in self.courses if (course['subject'] in subject and (course['status_text'] == 'Open' or course['status_text'] == 'Open Consent Req.'))])

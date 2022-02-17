@@ -21,6 +21,7 @@ title  (filter by phrase in title)
 description (filter by phrase in description)
 timeofday (filter by day and time, e.g. meets at 11 on Wed)
 limit (filter by upper limit, e.g. 50)
+course status (filter by if the courses in a particular subject is still open)
 starttime(filter by start time, based on a 24-hour clock)
 day(filter by day, e.g. m,tu,w,th,)
 '''
@@ -32,7 +33,7 @@ def topmenu():
     topmenu is the top level loop of the course search app
     '''
     global schedule
-    while True:         
+    while True:        
         command = input(">> (h for help) ")
         if command=='quit':
             return
@@ -72,6 +73,10 @@ def topmenu():
         elif command in ['day']:
             time = input("enter a day(m,tu,w,th,f):")
             schedule = schedule.day(time)
+        #7.e --Katherine Chengs
+        elif command in ['cs','course status']:
+            subject = input("enter a subject, and I will display all the classes in that subject that are still open:")
+            schedule = schedule.status(subject)
         else:
             print('command',command,'is not supported')
             continue

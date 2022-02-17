@@ -78,4 +78,6 @@ class Schedule():
 
     #6.e --Katherine Cheng
     def status(self,subject):
-        return Schedule([course for course in self.courses if (course['subject'] in subject and (course['status_text'] == 'Open' or course['status_text'] == 'Open Consent Req.'))])
+        ''' status filters the courses by status_text '''
+        return Schedule([course for course in self.courses if (course['subject'] in subject
+        and (course['status_text'] == 'Open' or course['status_text'] == 'Open Consent Req.'))])

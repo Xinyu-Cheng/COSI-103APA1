@@ -75,7 +75,8 @@ def topmenu():
             schedule = schedule.day(time)
         #7.e --Katherine Chengs
         elif command in ['cs','course status']:
-            subject = input("enter a subject, and I will display all the classes in that subject that are still open:")
+            subject = input("enter a subject, and" +
+            "I will display all the classes in that subject that are still open:")
             schedule = schedule.status(subject)
         else:
             print('command',command,'is not supported')

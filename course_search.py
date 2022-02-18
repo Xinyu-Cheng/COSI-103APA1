@@ -52,7 +52,7 @@ def topmenu():
         elif command in ['s','subject']:
             subject = input("enter a subject:")
             schedule = schedule.subject([subject])
-        #7.a --Jingqian
+        #7.a --Jingqian 
         elif command in ['c','course']:
             coursenum = input("enter a coursenum:")
             schedule = schedule.coursenum(coursenum)

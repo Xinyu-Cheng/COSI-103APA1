@@ -5,7 +5,7 @@ students search for courses they might want to take at Brandeis
 # samll change
 from schedule import Schedule
 import sys
-
+# add a comment just for showing using git
 schedule = Schedule()
 schedule.load_courses()
 schedule = schedule.enrolled(range(5,1000)) # eliminate courses with no students

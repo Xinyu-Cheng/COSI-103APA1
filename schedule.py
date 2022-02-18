@@ -4,7 +4,7 @@ by filtering, mapping, printing, etc.
 '''
 
 import json
-
+# git
 class Schedule():
     '''
     Schedule represent a list of Brandeis classes with operations for filtering

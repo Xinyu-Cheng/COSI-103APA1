@@ -15,7 +15,7 @@ quit
 reset
 term  (filter by term)
 course (filter by coursenum, e.g. COSI 103a)
-instructor (filter by instructor)
+instructor (filter by last name or email)
 subject (filter by subject, e.g. COSI, or LALS)
 title  (filter by phrase in title)
 description (filter by phrase in description)
@@ -24,6 +24,7 @@ limit (filter by upper limit, e.g. 50)
 course status (filter by if the courses in a particular subject is still open)
 starttime(filter by start time, based on a 24-hour clock)
 day(filter by day, e.g. m,tu,w,th,)
+waitlist(filter by minimum waiting persons)
 '''
 
 terms = {c['term'] for c in schedule.courses}
@@ -70,6 +71,15 @@ def topmenu():
         elif command in ['starttime']:
             time = int(input("enter a start time:"))
             schedule = schedule.starttime(time)
+        #7.b --Jian He
+        elif command in ['last','last name','email','instructor']:
+            emails = input('enter last name or email:')
+            schedule = schedule.instructor(emails)
+        #7.e --Jian He
+        elif command in ['waiting','wait','waitlist']:
+            n = input("enter minimum waiting people: ")
+            schedule = schedule.waitlist(n)
+        
         elif command in ['day']:
             time = input("enter a day(m,tu,w,th,f):")
             schedule = schedule.day(time)
@@ -97,4 +107,3 @@ def print_course(course):
 
 if __name__ == '__main__':
     topmenu()
-

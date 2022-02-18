@@ -81,3 +81,20 @@ class Schedule():
         ''' status filters the courses by status_text '''
         return Schedule([course for course in self.courses if (course['subject'] in subject
         and (course['status_text'] == 'Open' or course['status_text'] == 'Open Consent Req.'))])
+    
+    #7.b return courses by Instructor email or last name --Jian He
+    def instructor(self,emails):
+        list = []
+        for c in self.courses:
+            if c['instructor'][1] in emails:
+                list.append(c)
+            if c['instructor'][2] in emails:
+                list.append(c)
+        return Schedule(list)
+        #return Schedule([course for course in self.courses if course['instructor'][2] in emails.lower()])
+    
+    #6.c return courses have more than n - 1 people in waitlist --Jian He
+    def waitlist(self, n):
+        return Schedule([course for course in self.courses if course['waiting'] >= int(n)])
+    
+
